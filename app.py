@@ -117,7 +117,7 @@ def ask_gemini(request_text):
             "Gemini API key not found. Create a .env file beside app.py "
             "and add GEMINI_API_KEY=your_key."
         )
-    model = genai.GenerativeModel("gemini-3.8-flash")
+    model = "gemini-3.8-flash"
     client = genai.Client(api_key=api_key)
     response = client.models.generate_content(
         model=model,
