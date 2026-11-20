@@ -112,13 +112,15 @@ Do not claim that you executed or compiled the code.
 
 def ask_gemini(request_text):
     api_key = get_api_key()
+
     if not api_key:
         raise ValueError(
-            "Gemini API key not found. Create a .env file beside app.py "
-            "and add GEMINI_API_KEY=your_key."
+            "Gemini API key not found. Check your Streamlit Secrets."
         )
-    model = "gemini-3.8-flash"
+
+    model = "gemini-3.5-flash-lite"
     client = genai.Client(api_key=api_key)
+
     response = client.models.generate_content(
         model=model,
         contents=request_text,
@@ -127,8 +129,12 @@ def ask_gemini(request_text):
             max_output_tokens=4500,
         ),
     )
+
     if not response.text:
-        raise RuntimeError("Gemini returned an empty response. Try again.")
+        raise RuntimeError(
+            "Gemini returned an empty response. Please try again."
+        )
+
     return response.text, model
 
 # ---------- Sidebar ----------
