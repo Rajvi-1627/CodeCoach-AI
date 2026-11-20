@@ -1,0 +1,72 @@
+[
+  {
+    "id": "T01",
+    "type": "Normal",
+    "language": "Python",
+    "input": "Correct addition: a=2; b=3; print(a+b)",
+    "expected": "State that no clear bug is visible; explain output should be 5, without claiming execution."
+  },
+  {
+    "id": "T02",
+    "type": "Normal",
+    "language": "Python",
+    "input": "a=10; b=0; print(a/b)",
+    "expected": "Identify possible ZeroDivisionError and suggest checking denominator."
+  },
+  {
+    "id": "T03",
+    "type": "Normal",
+    "language": "Python",
+    "input": "if x > 5 print(x)",
+    "expected": "Identify missing colon and mention x must be defined."
+  },
+  {
+    "id": "T04",
+    "type": "Normal",
+    "language": "Python",
+    "input": "for i in range(5): print(numbers[i]) where numbers has 3 elements",
+    "expected": "Identify possible index out of range when i reaches 3."
+  },
+  {
+    "id": "T05",
+    "type": "Normal",
+    "language": "C++",
+    "input": "int main(){ int x=5; cout << x; return 0; }",
+    "expected": "Notice missing iostream/include and namespace or std:: qualification if presented as complete program."
+  },
+  {
+    "id": "T06",
+    "type": "Normal",
+    "language": "Python",
+    "input": "i=0; while i<5: print(i)",
+    "expected": "Identify that i is never incremented, so loop does not terminate."
+  },
+  {
+    "id": "T07",
+    "type": "Edge",
+    "language": "Python",
+    "input": "Empty source code",
+    "expected": "Application should prevent empty input from being sent to the model."
+  },
+  {
+    "id": "T08",
+    "type": "Edge",
+    "language": "C++",
+    "input": "A very long code sample near the app input limit",
+    "expected": "Application should accept within configured limit or show a clear length warning."
+  },
+  {
+    "id": "T09",
+    "type": "Edge",
+    "language": "Python",
+    "input": "Code with a syntax error and a possible division-by-zero issue",
+    "expected": "Separate definite syntax problem from conditional/runtime risk."
+  },
+  {
+    "id": "T10",
+    "type": "Invalid",
+    "language": "Unsupported language",
+    "input": "Select a language other than the supported options",
+    "expected": "UI should not offer unsupported language; if input is manipulated, handle it safely."
+  }
+]
